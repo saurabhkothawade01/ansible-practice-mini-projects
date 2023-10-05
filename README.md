@@ -76,6 +76,7 @@ Ansible can manage powerful automation tasks and can adapt to many workflows and
 
 ### Configure automation content navigator to use the execution environment image quay.io/ansible/creator-ee:v0.9.1 and to only pull the image if it is missing. Also configure automation content navigator to disable playbook artifacts.
 
+![image](https://github.com/saurabhkothawade01/ansible-practice-mini-projects/assets/68688738/a11b71be-1897-4464-98ff-893699fd8ade)
 
 ansible-navigator:  
   execution-environment:  
