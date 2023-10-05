@@ -122,7 +122,9 @@ become_ask_pass = false
 | Fully qualified domain name | ansible_facts['fqdn'] |
 | Main IPv4 address| ansible_facts['default_ipv4']['address'] |
 | List of the names of all network interfaces | ansible_facts['interfaces'] |
-
+| Size of the /dev/vda1 disk partition | ansible_facts['devices']['vda']['partitions']['vda1']['size'] |
+| List of DNS servers | ansible_facts['dns']['nameservers'] |
+| Version of the currently running kernel | ansible_facts['kernel'] |
 
 ### Executing a Dry Run
 
