@@ -114,6 +114,12 @@ become_ask_pass = false
 
 ---
 
+### Executing a Dry Run
+
+`ansible-navigator run -m stdout playbook.yml -i inventory --check`
+
+---
+
 ### Examples of Ansible Facts
 
 | Fact | Variable |
@@ -125,9 +131,5 @@ become_ask_pass = false
 | Size of the /dev/vda1 disk partition | ansible_facts['devices']['vda']['partitions']['vda1']['size'] |
 | List of DNS servers | ansible_facts['dns']['nameservers'] |
 | Version of the currently running kernel | ansible_facts['kernel'] |
-
-### Executing a Dry Run
-
-`ansible-navigator run -m stdout playbook.yml -i inventory --check`
 
 ---
