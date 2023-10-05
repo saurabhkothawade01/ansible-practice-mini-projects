@@ -6,28 +6,35 @@ Ansible can manage powerful automation tasks and can adapt to many workflows and
 
 `python3 -m pip install ansible-navigator`
 
-Step 2: Verify that automation content navigator is installed on the system. Run the ansible-navigator command with the --version option.
+**Step 2: Verify that automation content navigator is installed on the system. Run the ansible-navigator command with the --version option.**
 
-ansible-navigator --version
+`ansible-navigator --version`
 
-# Create a custom static inventory file named inventory
+### Example of creating a custom static inventory file named inventory
 
-[webservers]
-server[a:d].lab.example.com
-[raleigh]
+`[webservers]
+server[a:d].lab.example.com`
+
+`[raleigh]
 servera.lab.example.com
-serverb.lab.example.com
+serverb.lab.example.com`
+
 [mountainview]
 serverc.lab.example.com
+
 [london]
 serverd.lab.example.com
+
 [development]
 servera.lab.example.com
+
 [testing]
 serverb.lab.example.com
+
 [production]
 serverc.lab.example.com
 serverd.lab.example.com
+
 [us:children]
 raleigh
 mountainview
