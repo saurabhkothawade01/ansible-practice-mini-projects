@@ -72,15 +72,18 @@ Ansible can manage powerful automation tasks and can adapt to many workflows and
 
 `ansible-navigator inventory -i playbook-inventory`
 
-# Configure automation content navigator to use the execution environment image utility.lab.example.com/ee-supported-rhel8:latest and to only pull the image if it is missing. Also configure automation content navigator to disable playbook artifacts.
+---
 
-ansible-navigator:
-  execution-environment:
-    image: quay.io/ansible/creator-ee:v0.9.1
-    pull:
-      policy: missing
-  playbook-artifact:
-    enable: false
+### Configure automation content navigator to use the execution environment image quay.io/ansible/creator-ee:v0.9.1 and to only pull the image if it is missing. Also configure automation content navigator to disable playbook artifacts.
+
+
+ansible-navigator:  
+  execution-environment:  
+    image: quay.io/ansible/creator-ee:v0.9.1  
+    pull:  
+      policy: missing  
+  playbook-artifact:  
+    enable: false  
 
 # Run the ansible-navigator images command to list the available execution environment images.
 
