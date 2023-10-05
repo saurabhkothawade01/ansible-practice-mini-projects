@@ -116,10 +116,12 @@ become_ask_pass = false
 
 ### Examples of Ansible Facts
 
-| Syntax | Description |
+| Fact | Variable |
 | ----------- | ----------- |
-| Header | Title |
-| Paragraph | Text |
+| Short hostname | ansible_facts['hostname'] |
+| Fully qualified domain name | ansible_facts['fqdn'] |
+| Main IPv4 address| ansible_facts['default_ipv4']['address'] |
+| List of the names of all network interfaces | ansible_facts['interfaces'] |
 
 
 ### Executing a Dry Run
