@@ -1,19 +1,44 @@
 ---
-- name: Install and start Apache HTTPD
+- name: Configure Web Server
   hosts: localhost
   tasks:
-  - name: Ensure httpd package is present
+  - name: Latest version of httpd and firewalld installed
     ansible.builtin.package:
-      name: httpd
-      state: present
+      name:
+        - httpd
+        - firewalld
+      state: latest
 
-  - name: Correct index.html is present
+  - name: Test html page is installed
     ansible.builtin.copy:
-      content: Ansible Page
+      content: "Welcome to the Ansible Playbook!\n"
       dest: /var/www/html/index.html
 
-  - name: Ensure httpd is started
+  - name: Firewall enabled and running
+    ansible.builtin.service:
+      name: firewalld
+      enabled: true
+      state: started
+
+  - name: Firewall permits access to httpd service
+    ansible.posix.firewalld:
+      service: http
+      permanent: true
+      state: enabled
+      immediate: yes
+
+  - name: Web server enabled and running
     ansible.builtin.service:
       name: httpd
-      state: started
       enabled: true
+      state: started
+
+
+- name: Test the web server
+  hosts: localhost
+  tasks:
+  - name: Connect to the web server
+    ansible.builtin.uri:
+      url: http://127.0.0.1
+      return_content: yes
+      status_code: 200
