@@ -1,6 +1,8 @@
 # Ansible: The Language of DevOps
 Ansible can manage powerful automation tasks and can adapt to many workflows and environments. At the same time, new users of Ansible can very quickly use it to become productive.
 
+---
+
 ### Installing Ansible 
 **Step 1:  Install the ansible-navigator package that provides automation content navigator so that you can use that machine as your control node.**
 
@@ -10,14 +12,13 @@ Ansible can manage powerful automation tasks and can adapt to many workflows and
 
 `ansible-navigator --version`
 
+---
+
 ### Example of creating a custom static inventory file
 
 `[webservers]`
 
 `server[a:d].lab.example.com`   
-
-
----
 
 `[raleigh]`
 
@@ -25,26 +26,21 @@ Ansible can manage powerful automation tasks and can adapt to many workflows and
 
 `serverb.lab.example.com`   
 
-
 `[mountainview]`
 
 `serverc.lab.example.com`
-
 
 `[london]`
 
 `serverd.lab.example.com`
 
-
 `[development]`
 
 `servera.lab.example.com`
 
-
 `[testing]`
 
 `serverb.lab.example.com`
-
 
 `[production]`
 
@@ -52,12 +48,13 @@ Ansible can manage powerful automation tasks and can adapt to many workflows and
 
 `serverd.lab.example.com`
 
-
 `[us:children]`
 
 `raleigh`
 
 `mountainview`
+
+---
 
 ### Use variations of the ansible-navigator inventory command to verify the managed hosts and groups in the custom inventory file.
 
