@@ -17,6 +17,7 @@ Ansible can manage powerful automation tasks and can adapt to many workflows and
 `server[a:d].lab.example.com`   
 
 
+
 `[raleigh]`
 
 `servera.lab.example.com`
