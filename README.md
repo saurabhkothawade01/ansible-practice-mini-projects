@@ -121,6 +121,7 @@ become_ask_pass = false
 | Header | Title |
 | Paragraph | Text |
 
+
 ### Executing a Dry Run
 
 `ansible-navigator run -m stdout playbook.yml -i inventory --check`
