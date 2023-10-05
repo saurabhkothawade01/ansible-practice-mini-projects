@@ -114,6 +114,11 @@ become_ask_pass = false
 
 ---
 
+### Examples of Ansible Facts
+
+Fact | Variable  
+Short hostname | ansible_facts['hostname']
+
 ### Executing a Dry Run
 
 `ansible-navigator run -m stdout playbook.yml -i inventory --check`
