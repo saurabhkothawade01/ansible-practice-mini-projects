@@ -88,17 +88,14 @@ Ansible can manage powerful automation tasks and can adapt to many workflows and
 
 ### Example of ansible.cfg file
 
-[defaults]
-inventory = ./inventory
-remote_user = someuser
-ask_pass = false
+[defaults]  
+inventory = ./inventory  
+remote_user = someuser  
+ask_pass = false  
 
 
-[privilege_escalation]
-become = true
-become_method = sudo
-become_user = root
-become_ask_pass = false
-
-
-#
+[privilege_escalation]  
+become = true  
+become_method = sudo  
+become_user = root  
+become_ask_pass = false  
