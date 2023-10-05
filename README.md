@@ -78,24 +78,21 @@ Ansible can manage powerful automation tasks and can adapt to many workflows and
 
 ![image](https://github.com/saurabhkothawade01/ansible-practice-mini-projects/assets/68688738/a11b71be-1897-4464-98ff-893699fd8ade)
 
-ansible-navigator:  
-  execution-environment:  
-    image: quay.io/ansible/creator-ee:v0.9.1  
-    pull:  
-      policy: missing  
-  playbook-artifact:  
-    enable: false  
+---
 
-# Run the ansible-navigator images command to list the available execution environment images.
+### Run the ansible-navigator images command to list the available execution environment images.
 
-ansible-navigator images
+`ansible-navigator images`
 
-# ansible.cfg file
+---
+
+### Example of ansible.cfg file
 
 [defaults]
 inventory = ./inventory
 remote_user = someuser
 ask_pass = false
+
 
 [privilege_escalation]
 become = true
