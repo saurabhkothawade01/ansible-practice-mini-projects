@@ -12,12 +12,13 @@ Ansible can manage powerful automation tasks and can adapt to many workflows and
 
 ### Example of creating a custom static inventory file named inventory
 
-`[webservers]
-server[a:d].lab.example.com`
+`[webservers]   
+server[a:d].lab.example.com`   
 
-`[raleigh]
-servera.lab.example.com
-serverb.lab.example.com`
+`[raleigh]   
+servera.lab.example.com   
+serverb.lab.example.com`   
+
 
 [mountainview]
 serverc.lab.example.com
