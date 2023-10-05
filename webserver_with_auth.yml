@@ -1,0 +1,70 @@
+---
+- name: Install and configure webserver with basic auth
+  hosts: localhost
+  vars:
+    firewall_pkg: firewalld
+    firewall_svc: firewalld
+    web_pkg: httpd
+    web_svc: httpd
+    web_user: ansibleuser
+    web_pass: saurabh
+    web_root: /var/www/html
+    httpdconf_src: auth.conf
+    httpdconf_dest: /etc/httpd/conf.d/
+  tasks:
+  - name: latest version of necessary packages installed
+    ansible.builtin.package:
+      name:
+        - "{{ firewall_pkg }}"
+        - "{{ web_pkg }}"
+      state: latest
+
+  - name: Web content is in place
+    ansible.builtin.copy:
+      content: Welcome to the Ansible Playbook!\n
+      dest: "{{ web_root }}/index.html"
+
+  - name: Configure web server for allow authentication
+    ansible.builtin.copy:
+      src: "{{ httpdconf_src }}"
+      dest: "{{ httpdconf_dest }}"
+
+  - name: Copy .htaccess file
+    ansible.builtin.copy:
+      src: .htaccess
+      dest: "{{ web_root }}"
+
+  - name: Install passlib library
+    ansible.builtin.pip:
+      name: passlib
+
+  - name: Add a user to a password file
+    community.general.htpasswd:
+      path: /etc/httpd/.htpasswd
+      name: "{{ web_user }}"
+      password: "{{ web_pass }}"
+
+  - name: Restart the web server
+    ansible.builtin.service:
+      name: "{{ web_pkg }}"
+      state: restarted
+
+- name: test web server with basic auth
+  vars:
+    web_user: ansibleuser
+    web_pass: saurabh
+  hosts: localhost
+  tasks:
+  - name: connect to web server with basic auth
+    ansible.builtin.uri:
+      url: http://127.0.0.1
+      validate_certs: no
+      force_basic_auth: yes
+      user: "{{ web_user }}"
+      password: "{{ web_pass }}"
+      return_content: yes
+      status_code: 200
+    register: auth_test
+
+  - ansible.builtin.debug:
+      var: auth_test.content
