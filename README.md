@@ -99,3 +99,23 @@ become = true
 become_method = sudo  
 become_user = root  
 become_ask_pass = false  
+
+---
+
+### Running Playbooks
+
+`ansible-navigator run -m stdout playbook.yml -i inventory`
+
+---
+
+### Syntax Verification
+
+`ansible-navigator run -m stdout playbook.yml -i inventory --syntax-check`
+
+---
+
+### Executing a Dry Run
+
+`ansible-navigator run -m stdout playbook.yml -i inventory --check`
+
+---
