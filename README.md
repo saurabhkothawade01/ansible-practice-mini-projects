@@ -10,53 +10,68 @@ Ansible can manage powerful automation tasks and can adapt to many workflows and
 
 `ansible-navigator --version`
 
-### Example of creating a custom static inventory file named inventory
+### Example of creating a custom static inventory file
 
 `[webservers]`
 
 `server[a:d].lab.example.com`   
 
 
-`[raleigh]   
-servera.lab.example.com   
-serverb.lab.example.com`   
+`[raleigh]`
+
+`servera.lab.example.com`
+
+`serverb.lab.example.com`   
 
 
-[mountainview]
-serverc.lab.example.com
+`[mountainview]`
 
-[london]
-serverd.lab.example.com
+`serverc.lab.example.com`
 
-[development]
-servera.lab.example.com
 
-[testing]
-serverb.lab.example.com
+`[london]`
 
-[production]
-serverc.lab.example.com
-serverd.lab.example.com
+`serverd.lab.example.com`
 
-[us:children]
-raleigh
-mountainview
 
-# Use variations of the ansible-navigator inventory command to verify the managed hosts and groups in the custom inventory file.
+`[development]`
 
-ansible-navigator inventory -i playbook-inventory -m stdout --list
+`servera.lab.example.com`
 
-ansible-navigator inventory -i playbook-inventory -m stdout --graph
 
-ansible-navigator inventory -i playbook-inventory -m stdout --host servera.lab.example.com
+`[testing]`
 
-ansible-navigator inventory -i playbook-inventory -m stdout --host serverz.lab.example.com
+`serverb.lab.example.com`
 
-ansible-navigator inventory -i playbook-inventory -m stdout --graph us
 
-ansible-navigator inventory -i playbook-inventory -m stdout --graph ungrouped
+`[production]`
 
-ansible-navigator inventory -i playbook-inventory
+`serverc.lab.example.com`
+
+`serverd.lab.example.com`
+
+
+`[us:children]`
+
+`raleigh`
+
+`mountainview`
+
+### Use variations of the ansible-navigator inventory command to verify the managed hosts and groups in the custom inventory file.
+
+`ansible-navigator inventory -i playbook-inventory -m stdout --list `
+
+`ansible-navigator inventory -i playbook-inventory -m stdout --graph`
+
+`ansible-navigator inventory -i playbook-inventory -m stdout --host servera.lab.example.com`
+
+`ansible-navigator inventory -i playbook-inventory -m stdout --host serverz.lab.example.com`
+
+`ansible-navigator inventory -i playbook-inventory -m stdout --graph us`
+
+`ansible-navigator inventory -i playbook-inventory -m stdout --graph ungrouped`
+
+`ansible-navigator inventory -i playbook-inventory`
 
 # Configure automation content navigator to use the execution environment image utility.lab.example.com/ee-supported-rhel8:latest and to only pull the image if it is missing. Also configure automation content navigator to disable playbook artifacts.
 
