@@ -116,8 +116,10 @@ become_ask_pass = false
 
 ### Examples of Ansible Facts
 
-Fact | Variable  
-Short hostname | ansible_facts['hostname']
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
 
 ### Executing a Dry Run
 
